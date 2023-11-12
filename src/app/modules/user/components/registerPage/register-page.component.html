@@ -1,0 +1,46 @@
+<div class="wrapper-login-form d-flex d-all-center">
+
+
+    <div class="login-form">
+        <div class="d-flex d-all-center">
+            <i class="logo-icon uil uil-house-user"></i>
+        </div>
+        
+        <div class="text-label d-flex d-all-center">
+                Registrate
+        </div>
+        <form [formGroup]="registerForm" (submit)="sendCredentials()" class="form d-flex">
+            <div class="form-input">
+                <input formControlName="firs_name" 
+                type="text" placeholder="Introduzca su nombre">
+            </div>
+            <div class="form-input">
+                <input formControlName="last_name" 
+                type="text" placeholder="Introduzca apellido">
+            </div>
+            <div class="form-input">
+                <input formControlName="nit" 
+                type="text" placeholder="Introduzca NIT">
+            </div>
+            <div class="form-input">
+                <input formControlName="email" 
+                type="text" placeholder="Introduzca su email">
+            </div>
+            <div class="form-input">
+                <input formControlName="password" 
+                type="password" placeholder="Introduzca la contraseña">
+            </div>
+            <div class="form-input">
+                <input formControlName="password_confirmation" 
+                type="password" placeholder="Vuelva a ingresar la contraseña">
+            </div>
+            <div class="form-input">
+                <button [disabled]="registerForm.invalid || registerForm.pending" class="btn-primary"> <i class="uil uil-registered"></i> Registrarse</button>
+            </div>
+            
+        </form>
+    </div>
+
+        <!-- <app-register-form></app-register-form> -->
+
+</div>

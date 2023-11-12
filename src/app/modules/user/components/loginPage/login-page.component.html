@@ -1,0 +1,35 @@
+<div class="wrapper-login-form d-flex d-all-center">
+
+
+    <div class="login-form">
+        <div class="d-flex d-all-center">
+            <i class="logo-icon uil uil-house-user"></i>
+        </div>
+        
+        <div class="text-label d-flex d-all-center">
+            Iniciar sesión
+        </div>
+        <form [formGroup]="loginForm" (submit)="sendCredentials()" class="form d-flex">
+            <div class="form-input">
+                <input formControlName="nit" 
+                type="text" placeholder="Introduzca NIT">
+            </div>
+            <div class="form-input">
+                <input formControlName="password" 
+                type="password" placeholder="Introduzca la contraseña">
+            </div>
+            <div class="form-input">
+                <button (click)="sendCredentials()" [disabled]="loginForm.invalid" class="btn-primary">Iniciar sesión</button>
+            </div>
+            <div>o</div>
+            <div class="form-input">
+                <button [routerLink] = "['/','user', 'register']" class="btn-default"><i class="uil uil-registered"></i> Registrate </button>
+            </div>
+            
+        </form>
+    </div>
+
+        <!-- <app-register-form></app-register-form> -->
+
+
+</div>

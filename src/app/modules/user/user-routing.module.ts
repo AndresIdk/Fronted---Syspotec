@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './loginPage/login-page/login-page.component';
-import { RegisterPageComponent } from './registePage/register-page/register-page.component';
-import { DashBoardPageComponent } from './dashBoard/dash-board-page/dash-board-page.component';
+import { DashBoardComponent } from './components/dashBoard/dash-board.component';
+import { LoginPageComponent } from './components/loginPage/login-page.component';
+import { RegisterPageComponent } from './components/registerPage/register-page.component';
 import { validateSessionGuard } from '@core/guards/validate-session.guard';
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashBoardPageComponent,
+    component: DashBoardComponent,
     canActivate: [validateSessionGuard]
   }
 ];
