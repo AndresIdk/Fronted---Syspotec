@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { Page404Component } from '@shared/modules/page404/components/page404/page404.component';
 
 export const routes: Routes = [
     {

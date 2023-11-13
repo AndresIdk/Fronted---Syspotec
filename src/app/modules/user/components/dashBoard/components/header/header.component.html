@@ -5,9 +5,11 @@
         </div>
         <div class="menu">
             <ul>
-                <li 
-                *ngFor="let item of menu">
-                    {{item.name}}
+                <li>
+                    {{menu[0].name}}
+                </li>
+                <li (click)="showModal.openModal()">
+                    {{menu[1].name}}
                 </li>
             </ul>
         </div>

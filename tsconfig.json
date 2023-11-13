@@ -32,7 +32,10 @@
       ],
       "@modules/*": [
         "./src/app/modules/*"
-      ]
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
     }
   },
   "angularCompilerOptions": {

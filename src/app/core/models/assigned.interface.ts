@@ -1,11 +1,11 @@
 import { StatusInterface } from "./status.interface";
 import { TicketInterface } from "./ticket.interface";
-import { UserInterface } from "./user.interface";
+import { UserDTOInterface } from "./userDTO.interface";
 
 export interface AssignedInterface {
     id: number;
     ticket: TicketInterface;
-    user: UserInterface;
+    user: UserDTOInterface;
     status: StatusInterface;
     date: Date;
 }

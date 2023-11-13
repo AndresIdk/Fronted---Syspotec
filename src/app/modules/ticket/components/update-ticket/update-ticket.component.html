@@ -1,0 +1,29 @@
+<div class="wrapper">
+    <div class="new-task">
+        <form  [formGroup]="updateTicket" (ngSubmit)="saveTicket()">
+            <h2 class="title">Nuevo Ticket</h2>
+            <div class="form-input">
+                <label>Descripcion</label>
+                <input formControlName="description" type="text">
+                <label>Prioridad</label>
+                <select formControlName="priority" name="prioridad">
+                    <option value='BAJA' selected>BAJA</option>
+                    <option value='MEDIA' selected>MEDIA</option>
+                    <option value='ALTA' selected>ALTA</option>
+                </select>
+                <label>Estado</label>
+                <select formControlName="state" name="estado">
+                    <option *ngFor="let state of states" value={{state.id}} selected>{{state.name}}</option>
+                  </select>
+            </div>
+
+            <div class="form-input">
+                <br>
+                <button class="btn-primary">Guardar</button>
+                <p class="space">O</p>
+                <button (click)="updateModal.closeModal()" type="button" class="btn-default">Cancelar</button>
+            </div>
+        </form>
+
+    </div>
+</div>

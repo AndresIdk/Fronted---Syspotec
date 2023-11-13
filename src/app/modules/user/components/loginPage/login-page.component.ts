@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '@modules/user/services/user.service';
+import { StatesService } from '@modules/states/services/states.service';
 
 @Component({
   selector: 'app-login-page',
@@ -13,28 +14,32 @@ import { UserService } from '@modules/user/services/user.service';
 })
 export class LoginPageComponent {
 
-  loginForm:FormGroup = new FormGroup({});
+  loginForm: FormGroup = new FormGroup({});
 
-  constructor(private userService:UserService) { }
+  constructor(private userService: UserService, private stateService: StatesService, private router: Router) { }
 
   ngOnInit(): void {
 
     this.loginForm = new FormGroup(
       {
-          nit: new FormControl('',[Validators.required ,Validators.pattern('^[0-9]*$')]),
-          password: new FormControl('',[Validators.required,
-             Validators.minLength(3),
-             Validators.maxLength(12)])
+        nit: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]),
+        password: new FormControl('', [Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(12)])
       }
     )
   }
 
-  sendCredentials():void{
-    console.log('Hola')
+  sendCredentials(): void {
     const body = this.loginForm.value;
-    this.userService.submitLogin(body).subscribe((res) => {
-      console.log(res)
+    this.userService.submitLogin(body)
+    .subscribe((res) => {
+        this.router.navigate(['/', 'user', 'yyy'])
+        console.log({ res });
+      })
+
+    this.stateService.getStates().subscribe((res) => {
+      console.log({ estados: res });
     })
-    console.log(body)
   }
 }

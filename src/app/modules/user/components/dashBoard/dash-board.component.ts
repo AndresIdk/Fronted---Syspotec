@@ -1,21 +1,30 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RemoveSpacesPipe } from '@shared/pipes/remove-spaces.pipe';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from '@modules/user/components/dashBoard/components/header/header.component';
+import { AssignedCardComponent } from '@modules/assigned/components/assigned-card/assigned-card.component';
+import { NewTicketComponent } from '@modules/ticket/components/new-ticket/new-ticket.component';
+import { ShowModalPipe } from '@shared/pipes/show-modal.pipe';
+import { UpdateTicketComponent } from '@modules/ticket/components/update-ticket/update-ticket.component';
+import { ShoWModalUpdateViewPipe } from '@shared/pipes/show-modal-update-view.pipe';
+import { UpdateHelperPipe } from '@shared/pipes/update-helper.pipe';
 
 @Component({
   selector: 'app-dash-board',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, AssignedCardComponent, NewTicketComponent, UpdateTicketComponent],
   templateUrl: './dash-board.component.html',
   styleUrl: './dash-board.component.css'
 })
 export class DashBoardComponent {
-  value = 'Hello World o no';
 
-  constructor(private removeSpace: RemoveSpacesPipe) { }
+  value = 'Hello World o no';
+  constructor(private removeSpace: RemoveSpacesPipe, public showModal:ShowModalPipe,
+    public updateModal:ShoWModalUpdateViewPipe, public updateHelper:UpdateHelperPipe) { }
+  
 
   ngOnInit(): void {
     this.value = this.removeSpace.transform(this.value, '🍷');
   }
+
 }

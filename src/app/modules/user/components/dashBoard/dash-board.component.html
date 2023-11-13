@@ -1,3 +1,4 @@
 <app-header></app-header>
-
-<p>Value changed: {{value}}</p>
+<app-assigned-card ></app-assigned-card>
+<app-new-ticket *ngIf="(showModal.showModal$ | async)"></app-new-ticket>
+<app-update-ticket [id]="updateHelper.id"  [id_status]="updateHelper.id_status" [id_assigned]="updateHelper.id_assigned" *ngIf="updateModal.showModal$ | async"></app-update-ticket>

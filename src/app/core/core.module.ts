@@ -7,8 +7,11 @@ import { CookieModule } from 'ngx-cookie';
   declarations: [],
   imports: [
     CommonModule,
-    CookieModule.withOptions(),
+    CookieModule.withOptions()
   ],
-  providers: [CookieModule]
+  providers: [
+    CommonModule
+  ]
+
 })
-export class GuardModule { }
+export class CoreModule { }

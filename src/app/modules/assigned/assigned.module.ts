@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AssignedRoutingModule } from './assigned-routing.module';
 
@@ -8,7 +9,8 @@ import { AssignedRoutingModule } from './assigned-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    AssignedRoutingModule
+    AssignedRoutingModule,
+    HttpClientModule
   ]
 })
 export class AssignedModule { }
