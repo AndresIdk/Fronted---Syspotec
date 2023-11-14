@@ -13,6 +13,9 @@ import { ShowModalPipe } from '@shared/pipes/show-modal.pipe';
 import { ShoWModalUpdateViewPipe } from '@shared/pipes/show-modal-update-view.pipe';
 import { UpdateTicketComponent } from '@modules/ticket/components/update-ticket/update-ticket.component';
 import { UpdateHelperPipe } from '@shared/pipes/update-helper.pipe';
+import { ModalConfirmationPipe } from '@shared/pipes/modal-confirmation/modal-confirmation.pipe';
+import { loginProtectGuard } from '@core/guards/login-protect.guard';
+
 
 @NgModule({
   declarations: [],
@@ -32,7 +35,9 @@ import { UpdateHelperPipe } from '@shared/pipes/update-helper.pipe';
     AssignedService,
     ShoWModalUpdateViewPipe,
     UpdateTicketComponent,
-    UpdateHelperPipe
+    UpdateHelperPipe,
+    ModalConfirmationPipe,
+    loginProtectGuard
   ]
 })
 export class UserModule { }

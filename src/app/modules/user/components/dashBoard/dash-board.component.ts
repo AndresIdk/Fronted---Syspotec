@@ -8,11 +8,13 @@ import { ShowModalPipe } from '@shared/pipes/show-modal.pipe';
 import { UpdateTicketComponent } from '@modules/ticket/components/update-ticket/update-ticket.component';
 import { ShoWModalUpdateViewPipe } from '@shared/pipes/show-modal-update-view.pipe';
 import { UpdateHelperPipe } from '@shared/pipes/update-helper.pipe';
+import { ModalConfirmationComponent } from '@shared/modules/modal-confirmation/modal-confirmation.component';
+import { ModalConfirmationPipe } from '@shared/pipes/modal-confirmation/modal-confirmation.pipe';
 
 @Component({
   selector: 'app-dash-board',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, AssignedCardComponent, NewTicketComponent, UpdateTicketComponent],
+  imports: [CommonModule, HeaderComponent, AssignedCardComponent, NewTicketComponent, UpdateTicketComponent, ModalConfirmationComponent],
   templateUrl: './dash-board.component.html',
   styleUrl: './dash-board.component.css'
 })
@@ -20,7 +22,8 @@ export class DashBoardComponent {
 
   value = 'Hello World o no';
   constructor(private removeSpace: RemoveSpacesPipe, public showModal:ShowModalPipe,
-    public updateModal:ShoWModalUpdateViewPipe, public updateHelper:UpdateHelperPipe) { }
+    public updateModal:ShoWModalUpdateViewPipe, public updateHelper:UpdateHelperPipe,
+    public ModalConfirmation:ModalConfirmationPipe) { }
   
 
   ngOnInit(): void {

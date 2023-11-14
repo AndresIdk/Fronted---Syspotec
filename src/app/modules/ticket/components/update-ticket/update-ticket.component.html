@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="new-task">
         <form  [formGroup]="updateTicket" (ngSubmit)="saveTicket()">
-            <h2 class="title">Nuevo Ticket</h2>
+            <h2 class="title">Actualizar Ticket</h2>
             <div class="form-input">
                 <label>Descripcion</label>
                 <input formControlName="description" type="text">
@@ -19,7 +19,7 @@
 
             <div class="form-input">
                 <br>
-                <button class="btn-primary">Guardar</button>
+                <button [disabled]="updateTicket.invalid || updateTicket.pending" type="submit" (click)="modal.openConfirmationUpdate()"  class="btn-primary">Guardar</button>
                 <p class="space">O</p>
                 <button (click)="updateModal.closeModal()" type="button" class="btn-default">Cancelar</button>
             </div>

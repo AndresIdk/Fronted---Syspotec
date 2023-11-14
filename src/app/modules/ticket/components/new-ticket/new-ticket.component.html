@@ -21,7 +21,7 @@
             
             <div class="form-input">
                 <br>
-                <button class="btn-primary">Guardar</button>
+                <button [disabled]="newTicket.invalid || newTicket.pending" type="submit" (click)="modal.openConfirmationCreate()"  class="btn-primary">Guardar</button>
                 <p class="space">O</p>
                 <button (click)="showModal.closeModal()" type="button" class="btn-default">Cancelar</button>
             </div>

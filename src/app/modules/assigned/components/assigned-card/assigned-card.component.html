@@ -25,7 +25,7 @@
 
         <li>
             <button class="btn btn-primary" (click)="updateTicket(assigned.ticket.id, assigned.status.id, assigned.id)">Editar</button>
-            <button class="btn btn-primary" (click)="deleteTicket(assigned.ticket.id)">Eliminar</button>
+            <button class="btn btn-primary" (click)="modal.openConfirmationDelete()" (click)="deleteTicket(assigned.ticket.id)">Eliminar</button>
         </li>
 
     </ul>

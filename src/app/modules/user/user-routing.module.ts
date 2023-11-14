@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashBoardComponent } from './components/dashBoard/dash-board.component';
 import { LoginPageComponent } from './components/loginPage/login-page.component';
 import { RegisterPageComponent } from './components/registerPage/register-page.component';
+import { loginProtectGuard } from '@core/guards/login-protect.guard';
 import { validateSessionGuard } from '@core/guards/validate-session.guard';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginPageComponent
+    component: LoginPageComponent,
+    canActivate: [loginProtectGuard]
   },
   {
     path: 'register',

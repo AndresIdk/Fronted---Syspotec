@@ -34,12 +34,10 @@ export class LoginPageComponent {
     const body = this.loginForm.value;
     this.userService.submitLogin(body)
     .subscribe((res) => {
-        this.router.navigate(['/', 'user', 'yyy'])
-        console.log({ res });
+        this.router.navigate(['/', 'user', 'dashboard'])
       })
 
     this.stateService.getStates().subscribe((res) => {
-      console.log({ estados: res });
     })
   }
 }

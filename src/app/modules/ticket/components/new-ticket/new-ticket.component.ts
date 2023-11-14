@@ -8,6 +8,7 @@ import { TicketInterface } from '@core/models/ticket.interface';
 import { DBAssignedInterface } from '@core/models/db_assigned.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { AssignedService } from '@modules/assigned/services/assigned.service';
+import { ModalConfirmationPipe } from '@shared/pipes/modal-confirmation/modal-confirmation.pipe';
 
 @Component({
   selector: 'app-new-ticket',
@@ -24,7 +25,7 @@ export class NewTicketComponent {
   
   constructor(public showModal:ShowModalPipe, private stateService:StatesService,
      private ticketService:TicketService, private cookierService:CookieService,
-     private assignedService:AssignedService) { }
+     private assignedService:AssignedService, public modal:ModalConfirmationPipe) { }
 
   ngOnInit(): void {
     this.newTicket = new FormGroup(

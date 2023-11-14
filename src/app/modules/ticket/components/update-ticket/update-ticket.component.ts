@@ -8,6 +8,7 @@ import { TicketService } from '@modules/ticket/services/ticket.service';
 import { ShoWModalUpdateViewPipe } from '@shared/pipes/show-modal-update-view.pipe';
 import { forkJoin } from 'rxjs';
 import { AssignedService } from '@modules/assigned/services/assigned.service';
+import { ModalConfirmationPipe } from '@shared/pipes/modal-confirmation/modal-confirmation.pipe';
 
 @Component({
   selector: 'app-update-ticket',
@@ -29,14 +30,14 @@ export class UpdateTicketComponent {
   updateTicket: FormGroup = new FormGroup({});
 
   constructor(private stateService: StatesService, private ticketService: TicketService, private statesService:StatesService,
-    public updateModal:ShoWModalUpdateViewPipe, private assignedSservice: AssignedService) { }
+    public updateModal:ShoWModalUpdateViewPipe, private assignedSservice: AssignedService, public modal:ModalConfirmationPipe) { }
 
   ngOnInit(): void {
 
     this.updateTicket = new FormGroup(
       {
-        description: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(12)]),
-        priority: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(12)]),
+        description: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        priority: new FormControl('', [Validators.required]),
         state: new FormControl('', [Validators.required])
       });
 
@@ -92,6 +93,7 @@ export class UpdateTicketComponent {
     }
 
     this.assignedSservice.updateAssignedTicket(parseInt(this.id_assigned), bodyAssigned).subscribe((res) => {console.log(res)} );
+    this.updateModal.closeModal();
   }
 
 }

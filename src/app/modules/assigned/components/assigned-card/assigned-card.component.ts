@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ShoWModalUpdateViewPipe } from '@shared/pipes/show-modal-update-view.pipe';
 import { UpdateTicketComponent } from '@modules/ticket/components/update-ticket/update-ticket.component';
 import { UpdateHelperPipe } from '@shared/pipes/update-helper.pipe';
+import { ModalConfirmationPipe } from '@shared/pipes/modal-confirmation/modal-confirmation.pipe';
 
 @Component({
   selector: 'app-assigned-card',
@@ -24,12 +25,13 @@ export class AssignedCardComponent {
   constructor(private stateService: StatesService, private assignedService: AssignedService,
     private ticketService: TicketService, private userService: UserService,
     private cookieService: CookieService, private modalUpdate:ShoWModalUpdateViewPipe,
-    private updateTicketComponent:UpdateTicketComponent, public updateHelper:UpdateHelperPipe) { }
+    private updateTicketComponent:UpdateTicketComponent, public updateHelper:UpdateHelperPipe,
+    public modal:ModalConfirmationPipe) { }
 
   ListAssigned: AssignedInterface[] = [];
   nit = this.cookieService.get('nit');
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
     this.assignedService.getAssignedTicketsByID(this.nit)
       .subscribe((assi) => {
         assi.forEach((assigned:any) => {
@@ -61,7 +63,6 @@ export class AssignedCardComponent {
                 status: capState,
                 date: assigned.date
               });
-
             });
 
           });

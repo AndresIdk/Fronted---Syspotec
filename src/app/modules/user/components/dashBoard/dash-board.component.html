@@ -2,3 +2,4 @@
 <app-assigned-card ></app-assigned-card>
 <app-new-ticket *ngIf="(showModal.showModal$ | async)"></app-new-ticket>
 <app-update-ticket [id]="updateHelper.id"  [id_status]="updateHelper.id_status" [id_assigned]="updateHelper.id_assigned" *ngIf="updateModal.showModal$ | async"></app-update-ticket>
+<app-modal-confirmation *ngIf="((ModalConfirmation.showCreate$ | async) || (ModalConfirmation.showUpdate$ | async) || (ModalConfirmation.showDelete$ | async))"  [method]="ModalConfirmation.opc" ></app-modal-confirmation>
