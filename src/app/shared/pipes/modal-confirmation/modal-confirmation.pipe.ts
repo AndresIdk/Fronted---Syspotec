@@ -21,6 +21,10 @@ export class ModalConfirmationPipe implements PipeTransform {
   public showDelete$:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public showDelete = this.showDelete$.asObservable();
 
+  // Modal de confirmacion de cierre de sesion
+  public showCloseSession$:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public showCloseSession = this.showCloseSession$.asObservable();
+
   transform(value: unknown, ...args: unknown[]): unknown {
     return null;
   }
@@ -53,6 +57,16 @@ export class ModalConfirmationPipe implements PipeTransform {
 
   public closeConfirmationDelete(): any {
     this.showDelete$.next(false);
+  }
+
+  // Funciones de cambio de estado del modal de confirmacion de cierre de sesion
+  public openConfirmationCloseSession(): any {
+    this.opc = "Sesion cerrada exitosamente";
+    this.showCloseSession$.next(true);
+  }
+
+  public closeConfirmationCloseSession(): any {
+    this.showCloseSession$.next(false);
   }
 
 }

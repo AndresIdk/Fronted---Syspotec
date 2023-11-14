@@ -9,6 +9,7 @@
     --color-3: #FAFBFC;
     --color-4: #5E6C84;
     --color-5: #4ca03b;
+    --color-6: rgb(209, 28, 28);
     --font-family-1: 'Poppins', sans-serif;
     --box-shadow-1: rgb(0 0 0 / 10%) 0 0 10px;
     --font-size-1: 1rem;
@@ -39,6 +40,16 @@ button{
     color: white;
     border-radius: var(--border-radius);
     background-color: var(--color-5);
+    padding: .5rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+.btn-close{
+    width: 100%;
+    color: white;
+    border-radius: var(--border-radius);
+    background-color: var(--color-6);
     padding: .5rem;
     font-weight: 600;
     letter-spacing: .5px;
