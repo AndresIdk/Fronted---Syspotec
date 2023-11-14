@@ -27,6 +27,3 @@ http://localhost:4200/user/register
 http://localhost:4200/user/dashboard
 ```
 
-**IMPORTANTE**
-Para volver a iniciar sesion es necesario borrar la cookies del navegador o esperar un dia
-
